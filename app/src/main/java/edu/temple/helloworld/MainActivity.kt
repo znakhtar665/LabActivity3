@@ -18,9 +18,16 @@ class MainActivity : AppCompatActivity() {
         // Initialize with views defined in Layout - the first one is done for you
         displayTextView = findViewById(R.id.displayTextView)
 
-        
+        val nameEditText = findViewById<EditText>(R.id.nameEditText)
+
         findViewById<Button>(R.id.clickMeButton).setOnClickListener {
-            displayTextView.text = "Hello, ${findViewById<EditText>(R.id.nameEditText).text}"
+            val name = nameEditText.text.toString()
+            if (name.isNotEmpty()) {
+                displayTextView.text = "Hello, ${findViewById<EditText>(R.id.nameEditText).text}"
+            }
+            else {
+                displayTextView.text = "Please enter your name"
+            }
         }
 
 
